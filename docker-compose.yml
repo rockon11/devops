@@ -1,0 +1,15 @@
+version: "2.1"
+
+services:
+  devops-test:
+    build:
+      context: "./build"
+      args:
+        service: devops-test
+    image: "devops/devops-test"
+    mem_limit: 1024m
+    ports:
+      - "8080"
+    environment:
+     - elasticache.redis.hostname=redis
+restart: always
